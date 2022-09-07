@@ -1,6 +1,6 @@
 ﻿using BepInEx;
 using BepInEx.Configuration;
-using BepInEx.Harmony;
+using HarmonyLib;
 using KKAPI.Chara;
 using KKAPI.Maker;
 
@@ -32,7 +32,8 @@ namespace HS2_BoobSettings
             MakerAPI.MakerFinishedLoading += MakerAPI_MakerFinishedLoading;
 
             CharacterApi.RegisterExtraBehaviour<BoobController>(GUID);
-            HarmonyWrapper.PatchAll(typeof(HS2_BoobSettings));
+
+            Harmony.CreateAndPatchAll(typeof(HS2_BoobSettings));
         }
     }
 }
